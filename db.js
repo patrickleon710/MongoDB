@@ -1,10 +1,11 @@
 const { MongoClient } = require('mongodb')
 
 let dbConnection
+let URI = 'mongodb+srv://gachohinderitu005:<password>@cluster0.myager5.mongodb.net/?retryWrites=true&w=majority'
 
 module.exports = {
     connectToDb: (cb) => {
-        MongoClient.connect('mongodb://127.0.0.1:/Bookstore')
+        MongoClient.connect(URI)
         .then((client) => {
             dbConnection = client.db()
             return cb()
